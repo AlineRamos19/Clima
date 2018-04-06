@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/txt_cidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        tools:text="São Paulo" />
+
+    <ImageView
+        android:id="@+id/icone_clima"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignLeft="@+id/desc_clima"
+        android:layout_alignStart="@+id/desc_clima"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="49dp"
+        android:layout_marginStart="49dp"
+        tools:src="@drawable/clima" />
+
+    <TextView
+        android:id="@+id/desc_clima"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/linearLayout"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        tools:text="Sol com pancadas de chuva." />
+
+    <TextView
+        android:id="@+id/txt_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="06/04/2018"
+        android:layout_below="@id/txt_cidade"
+        android:textSize="12sp"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        android:id="@+id/linear_min_clima"
+        android:layout_below="@id/txt_data">
+
+        <TextView
+            android:textSize="11sp"
+            android:layout_marginLeft="36dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_temp_min"/>
+
+        <TextView
+            android:id="@+id/temp_minima"
+            android:textSize="18sp"
+            android:layout_marginLeft="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="17º"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@id/linear_min_clima"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout">
+
+        <TextView
+            android:textSize="11sp"
+            android:layout_marginLeft="36dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_temp_max"/>
+
+        <TextView
+            android:id="@+id/temp_maxima"
+            android:textSize="30sp"
+            android:layout_marginLeft="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="28º"/>
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

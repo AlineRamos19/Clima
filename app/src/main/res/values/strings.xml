@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Clima</string>
+    <string-array name="entries_city_spinner">
+        <item>São Paulo</item>
+        <item>Suzano</item>
+    </string-array>
+    <string name="title_city" />
+    <string name="label_temp_max">Max.</string>
+    <string name="label_temp_min">Min.</string>
+    <string name="label_selecione_cidade">Selecione a cidade que deseja consultar</string>
+</resources>
