@@ -1,6 +1,7 @@
 package com.example.t100.clima.adapter;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,7 +49,45 @@ public class ListaClimaAdapter extends RecyclerView.Adapter<ListaClimaAdapter.Cl
 
         switch (itemClima.getmIconeDia()){
             case 1 :
-                holder.mImagemClima.setImageDrawable(R.drawable.sol);
+                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sol));
+                break;
+
+            case 2 :
+                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sol));
+                break;
+
+            case 3 :
+                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sol));
+                break;
+
+            case 4 :
+                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sol));
+                break;
+
+            case 5 :
+                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sol));
+                break;
+
+            case 6 :
+                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sol));
+                break;
+
+            case 7:
+                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sol));
+                break;
+
+            case 8 :
+                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sol));
+                break;
+
+            case 9 :
+                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sol));
+                break;
+             default: holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, ));
+
+
+
+
 
 
         }

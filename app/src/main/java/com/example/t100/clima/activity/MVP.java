@@ -5,7 +5,7 @@ import com.example.t100.clima.modelo.Clima;
 import java.util.ArrayList;
 
 public interface MVP {
-    interface ViewMain{
+    interface ViewListaClima{
         public void showProgressBar(boolean status);
         public void showSnack(String msg);
     }
