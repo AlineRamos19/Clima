@@ -1,5 +1,7 @@
 package com.example.t100.clima.modelo;
 
+import android.widget.ImageView;
+
 /**
  * Created by t100 on 06/04/2018.
  */
@@ -12,6 +14,7 @@ public class Clima {
     private int mTempoMin;
     private int mTempoMax;
     private int mIconeDia;
+    private ImageView mImageClima;
 
 
     public Clima(String nomeCidade, String estado, String dataClima, String descricao,
@@ -64,5 +67,13 @@ public class Clima {
 
     public void setmIconeDia(int mIconeDia) {
         this.mIconeDia = mIconeDia;
+    }
+
+    public ImageView getmImageClima() {
+        return mImageClima;
+    }
+
+    public void setmImageClima(ImageView mImageClima) {
+        this.mImageClima = mImageClima;
     }
 }
