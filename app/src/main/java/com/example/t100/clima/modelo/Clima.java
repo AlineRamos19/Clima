@@ -2,24 +2,34 @@ package com.example.t100.clima.modelo;
 
 import android.widget.ImageView;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by t100 on 06/04/2018.
  */
 
 public class Clima {
 
+    @SerializedName("name")
     private String mNomeCidade;
+
+    @SerializedName("date_br")
     private String mDataClima;
+
+    @SerializedName("pt")
     private String mDescricao;
+
+    @SerializedName("min")
     private int mTempoMin;
+
+    @SerializedName("max")
     private int mTempoMax;
+
+    @SerializedName("day")
     private int mIconeDia;
+
     private ImageView mImageClima;
 
-
-    public Clima(String nomeCidade, String estado, String dataClima, String descricao,
-                 int tempMin, int tempMax, int iconeDia) {
-    }
 
     public String getmNomeCidade() {
         return mNomeCidade;

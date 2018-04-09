@@ -14,10 +14,6 @@ import com.example.t100.clima.modelo.Clima;
 
 import java.util.ArrayList;
 
-/**
- * Created by t100 on 06/04/2018.
- */
-
 public class ListaClimaAdapter extends RecyclerView.Adapter<ListaClimaAdapter.ClimaHolder> {
 
     private ArrayList<Clima> listaClima;
@@ -27,7 +23,6 @@ public class ListaClimaAdapter extends RecyclerView.Adapter<ListaClimaAdapter.Cl
         this.listaClima = listaClima;
         this.context = context;
     }
-
 
     @Override
     public ClimaHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -53,42 +48,37 @@ public class ListaClimaAdapter extends RecyclerView.Adapter<ListaClimaAdapter.Cl
                 break;
 
             case 2 :
-                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sol));
+                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.solcomnuvem));
                 break;
 
             case 3 :
-                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sol));
+                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.chuvafraca));
                 break;
 
             case 4 :
-                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sol));
+                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.solchuva));
                 break;
 
             case 5 :
-                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sol));
+                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.tempestade));
                 break;
 
             case 6 :
-                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sol));
+                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.tempestaderaio));
                 break;
 
             case 7:
-                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sol));
+                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.mato));
                 break;
 
             case 8 :
-                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sol));
+                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.granizo));
                 break;
 
             case 9 :
-                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sol));
+                holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.solpoucanuvem));
                 break;
-             default: holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, ));
-
-
-
-
-
+             default: holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.mipmap.placeholder_image));
 
         }
 
