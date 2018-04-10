@@ -14,10 +14,10 @@ public class Clima {
     private String mNomeCidade;
 
     @SerializedName("date_br")
-    private String mDataClima;
+    private Datum mDataClima;
 
     @SerializedName("pt")
-    private String mDescricao;
+    private Text mDescricao;
 
     @SerializedName("min")
     private Temperature mTempoMin;
@@ -26,7 +26,7 @@ public class Clima {
     private Temperature mTempoMax;
 
     @SerializedName("day")
-    private int mIconeDia;
+    private Icon mIconeDia;
 
     private ImageView mImageClima;
 
@@ -39,19 +39,19 @@ public class Clima {
         this.mNomeCidade = mNomeCidade;
     }
 
-    public String getmDataClima() {
+    public Datum getmDataClima() {
         return mDataClima;
     }
 
-    public void setmDataClima(String mDataClima) {
+    public void setmDataClima(Datum mDataClima) {
         this.mDataClima = mDataClima;
     }
 
-    public String getmDescricao() {
+    public Text getmDescricao() {
         return mDescricao;
     }
 
-    public void setmDescricao(String mDescricao) {
+    public void setmDescricao(Text mDescricao) {
         this.mDescricao = mDescricao;
     }
 
@@ -71,11 +71,11 @@ public class Clima {
         this.mTempoMax = mTempoMax;
     }
 
-    public int getmIconeDia() {
+    public Icon getmIconeDia() {
         return mIconeDia;
     }
 
-    public void setmIconeDia(int mIconeDia) {
+    public void setmIconeDia(Icon mIconeDia) {
         this.mIconeDia = mIconeDia;
     }
 

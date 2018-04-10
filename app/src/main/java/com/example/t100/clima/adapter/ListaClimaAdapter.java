@@ -40,8 +40,8 @@ public class ListaClimaAdapter extends RecyclerView.Adapter<ListaClimaAdapter.Cl
         holder.mNomeCidade.setText(itemClima.getmNomeCidade());
         holder.mDescricao.setText(itemClima.getmDescricao());
         holder.mDataClima.setText(itemClima.getmDataClima());
-        holder.mTempoMin.setText((CharSequence) itemClima.getmTempoMin());
-        holder.mTempoMax.setText((CharSequence) itemClima.getmTempoMax());
+        holder.mTempoMin.setText(itemClima.getmTempoMin());
+        holder.mTempoMax.setText(itemClima.getmTempoMax());
 
         switch (itemClima.getmIconeDia()){
             case 1 :
