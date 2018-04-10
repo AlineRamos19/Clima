@@ -26,7 +26,7 @@ public class Model implements MVP.ModelImpl {
     }
 
     @Override
-    public List<Clima> callRetrofit(int id) {
+    public void callRetrofit(int id) {
 
         try {
             Call<List<Clima>>call = new RetrofitConfig().getRetrofitService().buscarClima(id);
@@ -46,6 +46,6 @@ public class Model implements MVP.ModelImpl {
         } catch (Exception e) {
             Log.e(LOG_TAG, "Error: " + e.getMessage());
         }
-        return listaClima;
+
     }
 }

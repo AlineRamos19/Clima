@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Clima</string>
     <string-array name="entries_city_spinner">
+        <item>Selecione</item>
         <item>São Paulo</item>
         <item>Suzano</item>
     </string-array>

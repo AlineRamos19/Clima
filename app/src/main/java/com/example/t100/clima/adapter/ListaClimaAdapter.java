@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.t100.clima.R;
+import com.example.t100.clima.activity.ListaClima;
 import com.example.t100.clima.modelo.Clima;
 import com.example.t100.clima.modelo.Datum;
 import com.example.t100.clima.modelo.Temperature;
@@ -21,9 +22,9 @@ import java.util.List;
 public class ListaClimaAdapter extends RecyclerView.Adapter<ListaClimaAdapter.ClimaHolder> {
 
     private List<Clima> listaClima;
-    private Context context;
+    private ListaClima context;
 
-    public ListaClimaAdapter(List<Clima> listaClima, Context context) {
+    public ListaClimaAdapter(List<Clima> listaClima, ListaClima context) {
         this.listaClima = listaClima;
         this.context = context;
     }

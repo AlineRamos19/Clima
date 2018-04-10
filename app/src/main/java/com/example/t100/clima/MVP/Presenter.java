@@ -34,20 +34,9 @@ public class Presenter implements MVP.PresenterImpl {
     }
 
     @Override
-    public Context getContext() {
-        return (Context) view;
-    }
-
-
-    @Override
     public void showProgressBar(boolean status) {
         int visibilidadde = status ? View.VISIBLE : View.INVISIBLE;
         view.showProgressBar(visibilidadde);
-    }
-
-    @Override
-    public void showSnackBar(String msg) {
-        view.showSnack(msg);
     }
 
     @Override

@@ -23,15 +23,29 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if(presenter == null){
+            presenter = new Presenter();        }
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 
         final Spinner spinner = findViewById(R.id.spinner);
+        spinner.setSelected(false);
+
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 Object item = adapterView.getItemAtPosition(i);
+
                 if (item.toString().equals("São Paulo")) {
-                    //presenter.retrofitService(3477);
+                    presenter.retrofitService(3477);
+                    Intent intent = new Intent(MainActivity.this, ListaClima.class);
+                    startActivity(intent);
 
                 } else if (item.toString().equals("Suzano")) {
                     presenter.retrofitService(3501);
@@ -46,11 +60,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
     }
 }

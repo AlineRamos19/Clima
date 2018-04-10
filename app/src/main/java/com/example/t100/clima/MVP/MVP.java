@@ -25,17 +25,14 @@ public interface MVP {
 
         public List<Clima> getClima();
 
-        public Context getContext();
-
         public void setView(MVP.ViewImpl view);
 
         public void showProgressBar(boolean status);
 
-        public void showSnackBar(String msg);
     }
 
     interface ModelImpl {
-        List<Clima> callRetrofit(int id);
+        void callRetrofit(int id);
     }
 
 

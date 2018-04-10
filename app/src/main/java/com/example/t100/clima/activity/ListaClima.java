@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.t100.clima.MVP.MVP;
 import com.example.t100.clima.MVP.Presenter;
@@ -16,29 +17,29 @@ import com.example.t100.clima.modelo.Clima;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class ListaClima extends AppCompatActivity implements MVP.ViewImpl {
+
     Presenter presenter = new Presenter();
-
-
     RecyclerView recyclerView;
     ListaClimaAdapter adapter;
     ProgressBar progressBar;
+    List<Clima> lista = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_clima);
 
-        if (savedInstanceState == null) {
-            if (presenter == null) {
+        if (presenter == null) {
                 presenter = new Presenter();
-            }
         }
         presenter.setView(this);
     }
 
     @Override
     protected void onStart() {
+        super.onStart();
 
         progressBar = findViewById(R.id.progress);
         recyclerView = findViewById(R.id.recycler);
@@ -48,11 +49,17 @@ public class ListaClima extends AppCompatActivity implements MVP.ViewImpl {
                 new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new ListaClimaAdapter(presenter.getClima(), ListaClima.this);
-        updateListaRecycler();
+        presenter.showProgressBar(false);
+        lista = presenter.getClima();
+
+        adapter = new ListaClimaAdapter(lista, ListaClima.this);
         recyclerView.setAdapter(adapter);
 
-        super.onStart();
+
+
+        Toast.makeText(ListaClima.this, "Valores: " + presenter.getClima(), Toast.LENGTH_SHORT).show();
+
+
     }
 
     @Override
