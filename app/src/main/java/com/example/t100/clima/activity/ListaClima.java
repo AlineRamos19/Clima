@@ -19,9 +19,9 @@ import java.util.List;
 public class ListaClima extends AppCompatActivity implements MVP.ViewImpl {
     Presenter presenter = new Presenter();
 
+
     RecyclerView recyclerView;
     ListaClimaAdapter adapter;
-    ArrayList<Clima> listaClima = new ArrayList<>();
     ProgressBar progressBar;
 
     @Override
@@ -29,19 +29,30 @@ public class ListaClima extends AppCompatActivity implements MVP.ViewImpl {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_clima);
 
+        if (savedInstanceState == null) {
+            if (presenter == null) {
+                presenter = new Presenter();
+            }
+        }
+        presenter.setView(this);
+    }
+
+    @Override
+    protected void onStart() {
+
         progressBar = findViewById(R.id.progress);
-        showProgressBar(0);
         recyclerView = findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
-
-        listaClima = presenter.getClima();
-        adapter = new ListaClimaAdapter(listaClima, ListaClima.this);
-        recyclerView.setAdapter(adapter);
 
         RecyclerView.LayoutManager layoutManager =
                 new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
+        adapter = new ListaClimaAdapter(presenter.getClima(), ListaClima.this);
+        updateListaRecycler();
+        recyclerView.setAdapter(adapter);
+
+        super.onStart();
     }
 
     @Override
@@ -56,6 +67,6 @@ public class ListaClima extends AppCompatActivity implements MVP.ViewImpl {
 
     @Override
     public void updateListaRecycler() {
-
+        adapter.notifyDataSetChanged();
     }
 }

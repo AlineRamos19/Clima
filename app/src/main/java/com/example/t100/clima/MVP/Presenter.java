@@ -6,32 +6,31 @@ import android.view.View;
 import com.example.t100.clima.modelo.Clima;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Presenter implements MVP.PresenterImpl {
 
-    private ArrayList<Clima> listagem = new ArrayList<>();
+    private List<Clima> listagem = new ArrayList<>();
     private MVP.ViewImpl view;
     private MVP.ModelImpl model;
 
     public Presenter(){
-        model = new Model();
+        model = new Model(this);
     }
     @Override
     public void retrofitService(int id) {
         model.callRetrofit(id);
-
     }
 
     @Override
-    public void updateListarRecycler(ArrayList<Clima> listaClima) {
-        listagem.addAll(listaClima);
-
-    }
-
-    @Override
-    public ArrayList<Clima> getClima() {
+    public List<Clima> getClima() {
         return listagem;
+    }
+
+    @Override
+    public void setView(MVP.ViewImpl view) {
+        this.view = view;
     }
 
     @Override
@@ -39,10 +38,6 @@ public class Presenter implements MVP.PresenterImpl {
         return (Context) view;
     }
 
-    @Override
-    public void setView(MVP.ViewImpl view) {
-        this.view = view;
-    }
 
     @Override
     public void showProgressBar(boolean status) {
@@ -53,5 +48,12 @@ public class Presenter implements MVP.PresenterImpl {
     @Override
     public void showSnackBar(String msg) {
         view.showSnack(msg);
+    }
+
+    @Override
+    public void updateListarRecycler(List<Clima> listaClima) {
+        listagem.addAll(listaClima);
+        view.updateListaRecycler();
+
     }
 }

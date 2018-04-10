@@ -1,89 +1,67 @@
 package com.example.t100.clima.modelo;
 
-import android.widget.ImageView;
+import java.util.List;
 
+import com.example.t100.clima.modelo.Datum;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
-/**
- * Created by t100 on 06/04/2018.
- */
 
 public class Clima {
 
+    @SerializedName("id")
+    @Expose
+    private Integer id;
     @SerializedName("name")
-    private String mNomeCidade;
+    @Expose
+    private String name;
+    @SerializedName("state")
+    @Expose
+    private String state;
+    @SerializedName("country")
+    @Expose
+    private String country;
+    @SerializedName("data")
+    @Expose
+    private List<Datum> data = null;
 
-    @SerializedName("date_br")
-    private Datum mDataClima;
-
-    @SerializedName("pt")
-    private Text mDescricao;
-
-    @SerializedName("min")
-    private Temperature mTempoMin;
-
-    @SerializedName("max")
-    private Temperature mTempoMax;
-
-    @SerializedName("day")
-    private Icon mIconeDia;
-
-    private ImageView mImageClima;
-
-
-    public String getmNomeCidade() {
-        return mNomeCidade;
+    public Integer getId() {
+        return id;
     }
 
-    public void setmNomeCidade(String mNomeCidade) {
-        this.mNomeCidade = mNomeCidade;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Datum getmDataClima() {
-        return mDataClima;
+    public String getName() {
+        return name;
     }
 
-    public void setmDataClima(Datum mDataClima) {
-        this.mDataClima = mDataClima;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Text getmDescricao() {
-        return mDescricao;
+    public String getState() {
+        return state;
     }
 
-    public void setmDescricao(Text mDescricao) {
-        this.mDescricao = mDescricao;
+    public void setState(String state) {
+        this.state = state;
     }
 
-    public Temperature getmTempoMin() {
-        return mTempoMin;
+    public String getCountry() {
+        return country;
     }
 
-    public void setmTempoMin(Temperature mTempoMin) {
-        this.mTempoMin = mTempoMin;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public Temperature getmTempoMax() {
-        return mTempoMax;
+    public List<Datum> getData() {
+        return data;
     }
 
-    public void setmTempoMax(Temperature mTempoMax) {
-        this.mTempoMax = mTempoMax;
+    public void setData(List<Datum> data) {
+        this.data = data;
     }
 
-    public Icon getmIconeDia() {
-        return mIconeDia;
-    }
-
-    public void setmIconeDia(Icon mIconeDia) {
-        this.mIconeDia = mIconeDia;
-    }
-
-    public ImageView getmImageClima() {
-        return mImageClima;
-    }
-
-    public void setmImageClima(ImageView mImageClima) {
-        this.mImageClima = mImageClima;
-    }
 }

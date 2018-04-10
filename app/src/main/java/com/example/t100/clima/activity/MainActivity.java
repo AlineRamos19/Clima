@@ -26,32 +26,26 @@ public class MainActivity extends AppCompatActivity {
 
         final Spinner spinner = findViewById(R.id.spinner);
 
-        try {
-            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    Object item = adapterView.getItemAtPosition(i);
-                    String nome = item.toString();
-                    if (item.toString().equals("São Paulo")) {
-                        presenter.retrofitService(3477);
-                    } else if (item.toString().equals("Suzano")) {
-                        presenter.retrofitService(3501);
-                    }
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Object item = adapterView.getItemAtPosition(i);
+                if (item.toString().equals("São Paulo")) {
+                    //presenter.retrofitService(3477);
 
+                } else if (item.toString().equals("Suzano")) {
+                    presenter.retrofitService(3501);
                     Intent intent = new Intent(MainActivity.this, ListaClima.class);
                     startActivity(intent);
                 }
 
-                @Override
-                public void onNothingSelected(AdapterView<?> adapterView) {
+            }
 
-                }
-            });
-        } catch (StackOverflowError e) {
-            Log.e(LOG_TAG, "Error: " + e.getMessage());
-        }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
 
-
+            }
+        });
     }
 
     @Override

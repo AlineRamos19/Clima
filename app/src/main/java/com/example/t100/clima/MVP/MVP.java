@@ -5,6 +5,7 @@ import android.content.Context;
 import com.example.t100.clima.modelo.Clima;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface MVP {
 
@@ -20,9 +21,9 @@ public interface MVP {
     interface PresenterImpl {
         public void retrofitService(int id);
 
-        public void updateListarRecycler(ArrayList<Clima> listaClima);
+        public void updateListarRecycler(List<Clima> listaClima);
 
-        public ArrayList<Clima> getClima();
+        public List<Clima> getClima();
 
         public Context getContext();
 
@@ -34,7 +35,7 @@ public interface MVP {
     }
 
     interface ModelImpl {
-        ArrayList<Clima> callRetrofit(int id);
+        List<Clima> callRetrofit(int id);
     }
 
 
