@@ -27,7 +27,8 @@ public class ListaClimaAdapter extends RecyclerView.Adapter<ListaClimaAdapter.Cl
     @Override
     public ClimaHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(context).inflate(R.layout.item_lista_clima, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_lista_clima, parent,
+                false);
         return new ClimaHolder(view);
     }
 
@@ -39,8 +40,8 @@ public class ListaClimaAdapter extends RecyclerView.Adapter<ListaClimaAdapter.Cl
         holder.mNomeCidade.setText(itemClima.getmNomeCidade());
         holder.mDescricao.setText(itemClima.getmDescricao());
         holder.mDataClima.setText(itemClima.getmDataClima());
-        holder.mTempoMin.setText(itemClima.getmTempoMin());
-        holder.mTempoMax.setText(itemClima.getmTempoMax());
+        holder.mTempoMin.setText((CharSequence) itemClima.getmTempoMin());
+        holder.mTempoMax.setText((CharSequence) itemClima.getmTempoMax());
 
         switch (itemClima.getmIconeDia()){
             case 1 :

@@ -20,6 +20,7 @@ public class Presenter implements MVP.PresenterImpl {
     @Override
     public void retrofitService(int id) {
         model.callRetrofit(id);
+
     }
 
     @Override

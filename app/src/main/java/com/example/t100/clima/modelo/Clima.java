@@ -20,10 +20,10 @@ public class Clima {
     private String mDescricao;
 
     @SerializedName("min")
-    private int mTempoMin;
+    private Temperature mTempoMin;
 
     @SerializedName("max")
-    private int mTempoMax;
+    private Temperature mTempoMax;
 
     @SerializedName("day")
     private int mIconeDia;
@@ -55,19 +55,19 @@ public class Clima {
         this.mDescricao = mDescricao;
     }
 
-    public int getmTempoMin() {
+    public Temperature getmTempoMin() {
         return mTempoMin;
     }
 
-    public void setmTempoMin(int mTempoMin) {
+    public void setmTempoMin(Temperature mTempoMin) {
         this.mTempoMin = mTempoMin;
     }
 
-    public int getmTempoMax() {
+    public Temperature getmTempoMax() {
         return mTempoMax;
     }
 
-    public void setmTempoMax(int mTempoMax) {
+    public void setmTempoMax(Temperature mTempoMax) {
         this.mTempoMax = mTempoMax;
     }
 
