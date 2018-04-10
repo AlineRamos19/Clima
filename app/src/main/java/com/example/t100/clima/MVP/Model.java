@@ -29,23 +29,24 @@ public class Model implements MVP.ModelImpl {
     public void callRetrofit(int id) {
 
         try {
-            Call<List<Clima>>call = new RetrofitConfig().getRetrofitService().buscarClima(id);
+            Call<Clima> call = new RetrofitConfig().getRetrofitService().buscarClima(id);
 
-            call.enqueue(new Callback <List<Clima>>() {
+            call.enqueue(new Callback<Clima>() {
                 @Override
-                public void onResponse(@NonNull Call<List<Clima>> call, @NonNull Response<List<Clima>> response) {
-                    listaClima = response.body();
+                public void onResponse(@NonNull Call<Clima> call, @NonNull Response<Clima> response) {
+                    Log.e("Model", response.toString());
+                    Clima clima = response.body();
+                    listaClima.add(clima);
                     presenter.updateListarRecycler(listaClima);
                 }
 
                 @Override
-                public void onFailure(@NonNull Call<List<Clima>> call, @NonNull Throwable t) {
+                public void onFailure(@NonNull Call<Clima> call, @NonNull Throwable t) {
                     Log.e(LOG_TAG, "Error: " + t.getMessage());
                 }
             });
         } catch (Exception e) {
             Log.e(LOG_TAG, "Error: " + e.getMessage());
         }
-
     }
 }
