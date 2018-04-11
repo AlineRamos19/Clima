@@ -11,6 +11,7 @@ public interface MVP {
 
     interface ViewImpl {
         public void showProgressBar(int visibilidade);
+
         public void updateListaRecycler();
 
     }
@@ -23,6 +24,8 @@ public interface MVP {
         public List<Clima> getClima();
 
         public void setView(MVP.ViewImpl view);
+
+
 
         public void showProgressBar(boolean status);
 

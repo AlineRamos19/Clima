@@ -45,6 +45,6 @@ public class Presenter implements MVP.PresenterImpl {
     public void updateListarRecycler(Clima listaClima) {
         listagem.clear();
         listagem.add(listaClima);
-        view.updateListaRecycler();
+        //view.updateListaRecycler();
     }
 }
