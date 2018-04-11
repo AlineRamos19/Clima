@@ -13,4 +13,5 @@
     <string name="cidade_suzano">Suzano</string>
     <string name="label_selecione">Selecione</string>
     <string name="cidade_sao_paulo">São Paulo</string>
+    <string name="graus_type">º</string>
 </resources>

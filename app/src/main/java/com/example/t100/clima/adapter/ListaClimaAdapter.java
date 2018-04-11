@@ -1,5 +1,6 @@
 package com.example.t100.clima.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -37,6 +38,7 @@ public class ListaClimaAdapter extends RecyclerView.Adapter<ListaClimaAdapter.Cl
         return new ClimaHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(ClimaHolder holder, int position) {
 
@@ -47,9 +49,9 @@ public class ListaClimaAdapter extends RecyclerView.Adapter<ListaClimaAdapter.Cl
         for(Datum datum : itemClima.getData()){
 
             holder.mDescricao.setText(datum.getTextIcon().getText().getPt());
-            holder.mDataClima.setText(datum.getDate());
-            holder.mTempoMin.setText(String.valueOf(datum.getTemperature().getMin()));
-            holder.mTempoMax.setText(String.valueOf(datum.getTemperature().getMax()));
+            holder.mDataClima.setText(datum.getDateBr());
+            holder.mTempoMin.setText(String.valueOf(datum.getTemperature().getMin()) + R.string.graus_type);
+            holder.mTempoMax.setText(String.valueOf(datum.getTemperature().getMax()) + R.string.graus_type);
 
             switch (datum.getTextIcon().getIcon().getDay()) {
                 case "1" :
