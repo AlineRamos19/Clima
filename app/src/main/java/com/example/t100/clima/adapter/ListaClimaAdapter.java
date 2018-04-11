@@ -48,8 +48,8 @@ public class ListaClimaAdapter extends RecyclerView.Adapter<ListaClimaAdapter.Cl
 
             holder.mDescricao.setText(datum.getTextIcon().getText().getPt());
             holder.mDataClima.setText(datum.getDate());
-            holder.mTempoMin.setText(datum.getTemperature().getMin());
-            holder.mTempoMax.setText(datum.getTemperature().getMax());
+            holder.mTempoMin.setText(String.valueOf(datum.getTemperature().getMin()));
+            holder.mTempoMax.setText(String.valueOf(datum.getTemperature().getMax()));
 
             switch (datum.getTextIcon().getIcon().getDay()) {
                 case "1" :
