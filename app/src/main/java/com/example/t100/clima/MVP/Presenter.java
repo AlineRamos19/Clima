@@ -1,6 +1,7 @@
 package com.example.t100.clima.MVP;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 
 import com.example.t100.clima.modelo.Clima;
@@ -15,9 +16,10 @@ public class Presenter implements MVP.PresenterImpl {
     private MVP.ViewImpl view;
     private MVP.ModelImpl model;
 
-    public Presenter(){
+    public Presenter() {
         model = new Model(this);
     }
+
     @Override
     public void retrofitService(int id) {
         model.callRetrofit(id);
@@ -40,9 +42,9 @@ public class Presenter implements MVP.PresenterImpl {
     }
 
     @Override
-    public void updateListarRecycler(List<Clima> listaClima) {
-        listagem.addAll(listaClima);
+    public void updateListarRecycler(Clima listaClima) {
+        listagem.clear();
+        listagem.add(listaClima);
         view.updateListaRecycler();
-
     }
 }

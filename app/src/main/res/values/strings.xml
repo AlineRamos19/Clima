@@ -9,4 +9,8 @@
     <string name="label_temp_max">Max.</string>
     <string name="label_temp_min">Min.</string>
     <string name="label_selecione_cidade">Selecione a cidade que deseja consultar</string>
+    <string name="label_selecione_spinner">Selecione uma opção válida!</string>
+    <string name="cidade_suzano">Suzano</string>
+    <string name="label_selecione">Selecione</string>
+    <string name="cidade_sao_paulo">São Paulo</string>
 </resources>

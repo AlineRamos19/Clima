@@ -3,12 +3,17 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:padding="16dp"
+    android:layout_margin="12dp"
+    android:background="#E0E0E0"
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
         android:id="@+id/nome_cidade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/linearLayout"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/linearLayout"
         android:textSize="22sp"
         android:textStyle="bold"
         tools:text="São Paulo" />
@@ -32,18 +37,17 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/linearLayout"
-        android:layout_marginEnd="17dp"
-        android:layout_marginRight="17dp"
         tools:text="Sol com pancadas de chuva." />
 
     <TextView
         android:id="@+id/txt_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="06/04/2018"
-        android:layout_below="@id/nome_cidade"
+        android:layout_alignLeft="@+id/nome_cidade"
+        android:layout_alignStart="@+id/nome_cidade"
+        android:layout_below="@+id/nome_cidade"
         android:textSize="12sp"
-        />
+        tools:text="06/04/2018" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -54,11 +58,11 @@
         android:layout_below="@id/txt_data">
 
         <TextView
-            android:textSize="11sp"
-            android:layout_marginLeft="36dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/label_temp_min"/>
+            android:layout_marginLeft="36dp"
+            android:text="@string/label_temp_min"
+            android:textSize="11sp" />
 
         <TextView
             android:id="@+id/temp_minima"

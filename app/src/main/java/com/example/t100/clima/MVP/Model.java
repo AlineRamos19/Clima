@@ -18,7 +18,6 @@ import retrofit2.Response;
 public class Model implements MVP.ModelImpl {
 
     private static final String LOG_TAG = Model.class.getSimpleName();
-    private List<Clima> listaClima = new ArrayList<>();
     private MVP.PresenterImpl presenter;
 
     public Model(MVP.PresenterImpl presenter) {
@@ -29,15 +28,15 @@ public class Model implements MVP.ModelImpl {
     public void callRetrofit(int id) {
 
         try {
-            Call<Clima> call = new RetrofitConfig().getRetrofitService().buscarClima(id);
+            Call<Clima>call = new RetrofitConfig().getRetrofitService().buscarClima(id);
 
             call.enqueue(new Callback<Clima>() {
                 @Override
-                public void onResponse(@NonNull Call<Clima> call, @NonNull Response<Clima> response) {
-                    Log.e("Model", response.toString());
-                    Clima clima = response.body();
-                    listaClima.add(clima);
-                    presenter.updateListarRecycler(listaClima);
+                public void onResponse(@NonNull Call<Clima> call, @NonNull Response<Clima>response) {
+                    if(response.isSuccessful()){
+                        Clima clima = response.body();
+                        presenter.updateListarRecycler(clima);
+                    }
                 }
 
                 @Override

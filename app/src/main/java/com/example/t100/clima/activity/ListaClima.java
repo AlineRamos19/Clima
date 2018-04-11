@@ -32,7 +32,7 @@ public class ListaClima extends AppCompatActivity implements MVP.ViewImpl {
         setContentView(R.layout.activity_lista_clima);
 
         if (presenter == null) {
-                presenter = new Presenter();
+            presenter = new Presenter();
         }
         presenter.setView(this);
     }
@@ -50,16 +50,12 @@ public class ListaClima extends AppCompatActivity implements MVP.ViewImpl {
         recyclerView.setLayoutManager(layoutManager);
 
         presenter.showProgressBar(false);
+
         lista = presenter.getClima();
+        Toast.makeText(ListaClima.this, "Lista com item: " + lista.size(), Toast.LENGTH_SHORT).show();
+        adapter = new ListaClimaAdapter(lista, this);
 
-        adapter = new ListaClimaAdapter(lista, ListaClima.this);
         recyclerView.setAdapter(adapter);
-
-
-
-        Toast.makeText(ListaClima.this, "Valores: " + presenter.getClima(), Toast.LENGTH_SHORT).show();
-
-
     }
 
     @Override
@@ -67,10 +63,6 @@ public class ListaClima extends AppCompatActivity implements MVP.ViewImpl {
         progressBar.setVisibility(visibilidade);
     }
 
-    @Override
-    public void showSnack(String msg) {
-
-    }
 
     @Override
     public void updateListaRecycler() {

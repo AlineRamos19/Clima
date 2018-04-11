@@ -11,9 +11,6 @@ public interface MVP {
 
     interface ViewImpl {
         public void showProgressBar(int visibilidade);
-
-        public void showSnack(String msg);
-
         public void updateListaRecycler();
 
     }
@@ -21,7 +18,7 @@ public interface MVP {
     interface PresenterImpl {
         public void retrofitService(int id);
 
-        public void updateListarRecycler(List<Clima> listaClima);
+        public void updateListarRecycler(Clima listaClima);
 
         public List<Clima> getClima();
 
