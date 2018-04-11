@@ -13,7 +13,8 @@ import java.util.List;
 public class Presenter implements MVP.PresenterImpl {
 
     private List<Clima> listagem = new ArrayList<>();
-    private MVP.ViewImpl view;
+    private MVP.ViewImpl view ;
+
     private MVP.ModelImpl model;
 
     public Presenter() {
@@ -45,6 +46,6 @@ public class Presenter implements MVP.PresenterImpl {
     public void updateListarRecycler(Clima listaClima) {
         listagem.clear();
         listagem.add(listaClima);
-        //view.updateListaRecycler();
+        view.updateListaRecycler();
     }
 }

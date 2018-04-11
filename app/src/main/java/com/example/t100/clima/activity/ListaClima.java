@@ -1,5 +1,8 @@
 package com.example.t100.clima.activity;
 
+import android.content.Intent;
+import android.os.Parcelable;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,6 +26,7 @@ public class ListaClima extends AppCompatActivity implements MVP.ViewImpl {
 
     ListaClimaAdapter adapter;
     ProgressBar progressBar;
+    RecyclerView recyclerView;
     List<Clima> lista = new ArrayList<>();
 
     @Override
@@ -34,6 +38,10 @@ public class ListaClima extends AppCompatActivity implements MVP.ViewImpl {
             presenter = new Presenter();
         }
         presenter.setView(this);
+
+        Intent intent = getIntent();
+        int id = intent.getIntExtra("id", 0);
+        presenter.retrofitService(id);
     }
 
     @Override
@@ -42,7 +50,7 @@ public class ListaClima extends AppCompatActivity implements MVP.ViewImpl {
 
         progressBar = findViewById(R.id.progress);
 
-        RecyclerView recyclerView = findViewById(R.id.recycler);
+        recyclerView = findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
 
         RecyclerView.LayoutManager layoutManager =
@@ -51,11 +59,12 @@ public class ListaClima extends AppCompatActivity implements MVP.ViewImpl {
 
         presenter.showProgressBar(true);
 
-        if(presenter.getClima().size() > 1){
+        if (presenter.getClima().size() > 0 && null != presenter.getClima()) {
             presenter.showProgressBar(false);
-            adapter = new ListaClimaAdapter( presenter.getClima(), this);
+            adapter = new ListaClimaAdapter(presenter.getClima(), this);
             recyclerView.setAdapter(adapter);
-        } else{
+        } else {
+            presenter.showProgressBar(false);
             Toast.makeText(ListaClima.this, "Lista: " + presenter.getClima().size(), Toast.LENGTH_SHORT).show();
         }
     }
@@ -69,4 +78,5 @@ public class ListaClima extends AppCompatActivity implements MVP.ViewImpl {
     public void updateListaRecycler() {
         adapter.notifyDataSetChanged();
     }
+
 }

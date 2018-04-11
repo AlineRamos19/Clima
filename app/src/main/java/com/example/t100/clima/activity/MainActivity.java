@@ -19,7 +19,6 @@ import com.example.t100.clima.R;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnTouchListener {
 
-    Presenter presenter = new Presenter();
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
     boolean userSelect = false;
 
@@ -27,14 +26,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (presenter == null) {
-            presenter = new Presenter();
-        }
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
 
         final Spinner spinner = findViewById(R.id.spinner);
 
@@ -53,16 +44,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         if (userSelect) {
             Object item = adapterView.getItemAtPosition(i);
+            Bundle bundle = new Bundle();
 
             if (item.toString().equals(getString(R.string.cidade_sao_paulo))) {
-                presenter.retrofitService(3477);
+                bundle.putInt("id", 3477);
                 Intent intent = new Intent(MainActivity.this, ListaClima.class);
+                intent.putExtras(bundle);
                 startActivity(intent);
 
             } else if (item.toString().equals(getString(R.string.cidade_suzano))) {
-                presenter.retrofitService(3501);
+                bundle.putInt("id", 3501);
                 Intent intent = new Intent(MainActivity.this, ListaClima.class);
+                intent.putExtras(bundle);
                 startActivity(intent);
+
             } else if (item.toString().equals(getString(R.string.label_selecione))) {
                 Snackbar.make(view, R.string.label_selecione_spinner, Snackbar.LENGTH_SHORT).show();
             }
