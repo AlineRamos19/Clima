@@ -1,6 +1,5 @@
 package com.example.t100.clima.activity;
 
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -49,13 +48,17 @@ public class ListaClima extends AppCompatActivity implements MVP.ViewImpl {
                 new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
-        presenter.showProgressBar(false);
+        presenter.showProgressBar(true);
 
         lista = presenter.getClima();
         Toast.makeText(ListaClima.this, "Lista com item: " + lista.size(), Toast.LENGTH_SHORT).show();
-        adapter = new ListaClimaAdapter(lista, this);
 
-        recyclerView.setAdapter(adapter);
+        if (lista != null) {
+            presenter.showProgressBar(false);
+            adapter = new ListaClimaAdapter(lista, this);
+            recyclerView.setAdapter(adapter);
+        }
+
     }
 
     @Override
