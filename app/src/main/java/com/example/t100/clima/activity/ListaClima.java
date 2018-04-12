@@ -59,10 +59,12 @@ public class ListaClima extends AppCompatActivity implements MVP.ViewImpl {
                 new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
-        if(presenter.getClima().size() > 0 && presenter.getClima() != null){
+        lista = presenter.getClima();
+
+        if(lista.size() > 0 && presenter.getClima() != null){
             presenter.showProgressBar(false);
         }
-        adapter = new ListaClimaAdapter(presenter.getClima(), this);
+        adapter = new ListaClimaAdapter(lista, this);
         recyclerView.setAdapter(adapter);
 
     }

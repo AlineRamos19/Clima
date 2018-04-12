@@ -3,12 +3,11 @@ package com.example.t100.clima.MVP;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.t100.clima.modelo.Clima;
+import com.example.t100.clima.modelo.Datum;
 import com.example.t100.clima.network.RetrofitConfig;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -20,6 +19,7 @@ public class Model implements MVP.ModelImpl {
     private static final String LOG_TAG = Model.class.getSimpleName();
     private MVP.PresenterImpl presenter;
 
+
     public Model(MVP.PresenterImpl presenter) {
         this.presenter = presenter;
     }
@@ -28,13 +28,14 @@ public class Model implements MVP.ModelImpl {
     public void callRetrofit(int id) {
 
         try {
-            Call<Clima>call = new RetrofitConfig().getRetrofitService().buscarClima(id);
+            Call<Clima> call = new RetrofitConfig().getRetrofitService().buscarClima(id);
 
             call.enqueue(new Callback<Clima>() {
                 @Override
-                public void onResponse(@NonNull Call<Clima> call, @NonNull Response<Clima>response) {
-                    if(response.isSuccessful()){
+                public void onResponse(@NonNull Call<Clima> call, @NonNull Response<Clima> response) {
+                    if (response.isSuccessful()) {
                         Clima clima = response.body();
+
                         presenter.updateListarRecycler(clima);
                     }
                 }

@@ -26,6 +26,7 @@ public class Presenter implements MVP.PresenterImpl {
         model.callRetrofit(id);
     }
 
+
     @Override
     public List<Clima> getClima() {
         return listagem;
@@ -43,9 +44,9 @@ public class Presenter implements MVP.PresenterImpl {
     }
 
     @Override
-    public void updateListarRecycler(Clima listaClima) {
+    public void updateListarRecycler(Clima lista) {
         listagem.clear();
-        listagem.add(listaClima);
+        listagem.add(lista);
         view.updateListaRecycler();
     }
 }
