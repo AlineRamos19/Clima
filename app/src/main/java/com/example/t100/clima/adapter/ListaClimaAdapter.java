@@ -22,10 +22,10 @@ import java.util.List;
 
 public class ListaClimaAdapter extends RecyclerView.Adapter<ListaClimaAdapter.ClimaHolder> {
 
-    private List<Clima> listaClima;
+    private List<Datum> listaClima;
     private ListaClima context;
 
-    public ListaClimaAdapter(List<Clima> listaClima, ListaClima context) {
+    public ListaClimaAdapter(List<Datum> listaClima, ListaClima context) {
         this.listaClima = listaClima;
         this.context = context;
     }
@@ -42,61 +42,52 @@ public class ListaClimaAdapter extends RecyclerView.Adapter<ListaClimaAdapter.Cl
     @Override
     public void onBindViewHolder(ClimaHolder holder, int position) {
 
-        Clima itemClima = listaClima.get(position);
+            Datum datum = listaClima.get(position);
 
-        List<Datum> datumList ;
-        datumList = itemClima.getData();
+            holder.mDescricao.setText(datum.getTextIcon().getText().getPt());
+            holder.mDataClima.setText(datum.getDateBr());
+            holder.mTempoMin.setText(String.valueOf(datum.getTemperature().getMin()));
+            holder.mTempoMax.setText(String.valueOf(datum.getTemperature().getMax()));
 
-        for (int i = 0; i < datumList.size(); i++) {
-            for (Datum datum : datumList) {
+            switch (datum.getTextIcon().getIcon().getDay()) {
+                case "1":
+                    holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sol));
+                    break;
 
-                holder.mDescricao.setText(datum.getTextIcon().getText().getPt());
-                holder.mDataClima.setText(datum.getDateBr());
-                holder.mTempoMin.setText(String.valueOf(datum.getTemperature().getMin()));
-                holder.mTempoMax.setText(String.valueOf(datum.getTemperature().getMax()));
+                case "2":
+                    holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.solcomnuvem));
+                    break;
 
-                switch (datum.getTextIcon().getIcon().getDay()) {
-                    case "1":
-                        holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.sol));
-                        break;
+                case "3":
+                    holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.chuvafraca));
+                    break;
 
-                    case "2":
-                        holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.solcomnuvem));
-                        break;
+                case "4":
+                    holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.solchuva));
+                    break;
 
-                    case "3":
-                        holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.chuvafraca));
-                        break;
+                case "5":
+                    holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.tempestade));
+                    break;
 
-                    case "4":
-                        holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.solchuva));
-                        break;
+                case "6":
+                    holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.tempestaderaio));
+                    break;
 
-                    case "5":
-                        holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.tempestade));
-                        break;
+                case "7":
+                    holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.mato));
+                    break;
 
-                    case "6":
-                        holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.tempestaderaio));
-                        break;
+                case "8":
+                    holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.granizo));
+                    break;
 
-                    case "7":
-                        holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.mato));
-                        break;
+                case "9":
+                    holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.solpoucanuvem));
+                    break;
+                default:
+                    holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.mipmap.placeholder_image));
 
-                    case "8":
-                        holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.granizo));
-                        break;
-
-                    case "9":
-                        holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.solpoucanuvem));
-                        break;
-                    default:
-                        holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.mipmap.placeholder_image));
-
-                }
-
-            }
 
         }
 

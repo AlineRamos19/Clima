@@ -35,8 +35,9 @@ public class Model implements MVP.ModelImpl {
                 public void onResponse(@NonNull Call<Clima> call, @NonNull Response<Clima> response) {
                     if (response.isSuccessful()) {
                         Clima clima = response.body();
-
-                        presenter.updateListarRecycler(clima);
+                        assert clima != null;
+                        List<Datum> list = clima.getData();
+                        presenter.updateListarRecycler(list);
                     }
                 }
 

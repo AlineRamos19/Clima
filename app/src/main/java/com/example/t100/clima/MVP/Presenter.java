@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.t100.clima.modelo.Clima;
+import com.example.t100.clima.modelo.Datum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class Presenter implements MVP.PresenterImpl {
 
-    private List<Clima> listagem = new ArrayList<>();
+    private List<Datum> listagem = new ArrayList<>();
     private MVP.ViewImpl view ;
 
     private MVP.ModelImpl model;
@@ -28,7 +29,7 @@ public class Presenter implements MVP.PresenterImpl {
 
 
     @Override
-    public List<Clima> getClima() {
+    public List<Datum> getClima() {
         return listagem;
     }
 
@@ -44,9 +45,9 @@ public class Presenter implements MVP.PresenterImpl {
     }
 
     @Override
-    public void updateListarRecycler(Clima lista) {
+    public void updateListarRecycler(List<Datum> datum) {
         listagem.clear();
-        listagem.add(lista);
+        listagem.addAll(datum);
         view.updateListaRecycler();
     }
 }

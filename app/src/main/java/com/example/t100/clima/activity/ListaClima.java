@@ -15,6 +15,7 @@ import com.example.t100.clima.MVP.Presenter;
 import com.example.t100.clima.R;
 import com.example.t100.clima.adapter.ListaClimaAdapter;
 import com.example.t100.clima.modelo.Clima;
+import com.example.t100.clima.modelo.Datum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,7 @@ public class ListaClima extends AppCompatActivity implements MVP.ViewImpl {
     ListaClimaAdapter adapter = null;
     ProgressBar progressBar;
     RecyclerView recyclerView;
-    List<Clima> lista = new ArrayList<>();
+    List<Datum> lista = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
