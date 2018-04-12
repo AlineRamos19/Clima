@@ -14,4 +14,5 @@
     <string name="label_selecione">Selecione</string>
     <string name="cidade_sao_paulo">São Paulo</string>
     <string name="graus_type">º</string>
+    <string name="barra_graus">/</string>
 </resources>

@@ -5,6 +5,7 @@ import android.os.Parcelable;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ProgressBar;
@@ -56,8 +57,8 @@ public class ListaClima extends AppCompatActivity implements MVP.ViewImpl {
         recyclerView = findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
 
-        RecyclerView.LayoutManager layoutManager =
-                new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        GridLayoutManager layoutManager =
+                new GridLayoutManager(this,  2);
         recyclerView.setLayoutManager(layoutManager);
 
         lista = presenter.getClima();
