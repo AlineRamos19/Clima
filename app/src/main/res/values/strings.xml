@@ -15,4 +15,5 @@
     <string name="cidade_sao_paulo">São Paulo</string>
     <string name="graus_type">º</string>
     <string name="barra_graus">/</string>
+    <string name="desc_imagem_clima">imagem_clima</string>
 </resources>

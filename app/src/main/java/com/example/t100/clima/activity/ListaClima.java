@@ -44,6 +44,12 @@ public class ListaClima extends AppCompatActivity implements MVP.ViewImpl {
         Intent intent = getIntent();
         int id = intent.getIntExtra("id", 0);
         presenter.retrofitService(id);
+
+        if(id == 3501){
+            getSupportActionBar().setTitle("Suzano");
+        } else{
+            getSupportActionBar().setTitle("São Paulo");
+        }
     }
 
     @Override

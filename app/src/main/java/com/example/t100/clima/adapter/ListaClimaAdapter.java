@@ -1,7 +1,6 @@
 package com.example.t100.clima.adapter;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,12 +11,8 @@ import android.widget.TextView;
 
 import com.example.t100.clima.R;
 import com.example.t100.clima.activity.ListaClima;
-import com.example.t100.clima.modelo.Clima;
 import com.example.t100.clima.modelo.Datum;
-import com.example.t100.clima.modelo.Temperature;
-import com.example.t100.clima.modelo.Text;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListaClimaAdapter extends RecyclerView.Adapter<ListaClimaAdapter.ClimaHolder> {
@@ -47,7 +42,9 @@ public class ListaClimaAdapter extends RecyclerView.Adapter<ListaClimaAdapter.Cl
             holder.mDescricao.setText(datum.getTextIcon().getText().getPt());
             holder.mDataClima.setText(datum.getDateBr());
             holder.mTempoMin.setText(String.valueOf(datum.getTemperature().getMin()));
+            holder.mTempoMin.append("º");
             holder.mTempoMax.setText(String.valueOf(datum.getTemperature().getMax()));
+            holder.mTempoMax.append("º");
 
             switch (datum.getTextIcon().getIcon().getDay()) {
                 case "1":
@@ -58,7 +55,20 @@ public class ListaClimaAdapter extends RecyclerView.Adapter<ListaClimaAdapter.Cl
                     holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.solcomnuvem));
                     break;
 
+                case "2r":
+                    holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.solmuitanuvem));
+                    break;
+
+
                 case "3":
+                    holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.chuvafraca));
+                    break;
+
+                case "3n":
+                    holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.chuvafraca));
+                    break;
+
+                case "3TM":
                     holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.chuvafraca));
                     break;
 
@@ -66,7 +76,19 @@ public class ListaClimaAdapter extends RecyclerView.Adapter<ListaClimaAdapter.Cl
                     holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.solchuva));
                     break;
 
+                case "4r":
+                    holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.solmuitachuva));
+                    break;
+
+                case "4t":
+                    holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.solchuvaraio));
+                    break;
+
                 case "5":
+                    holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.tempestade));
+                    break;
+
+                case "5n":
                     holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.tempestade));
                     break;
 
@@ -74,8 +96,16 @@ public class ListaClimaAdapter extends RecyclerView.Adapter<ListaClimaAdapter.Cl
                     holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.tempestaderaio));
                     break;
 
+                case "6n":
+                    holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.tempestaderaio));
+                    break;
+
                 case "7":
-                    holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.mato));
+                    holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.orvalho));
+                    break;
+
+                case "7n":
+                    holder.mImagemClima.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.orvalho));
                     break;
 
                 case "8":

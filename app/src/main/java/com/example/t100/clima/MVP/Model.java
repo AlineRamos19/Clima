@@ -26,7 +26,6 @@ public class Model implements MVP.ModelImpl {
 
     @Override
     public void callRetrofit(int id) {
-
         try {
             Call<Clima> call = new RetrofitConfig().getRetrofitService().buscarClima(id);
 
@@ -37,7 +36,7 @@ public class Model implements MVP.ModelImpl {
                         Clima clima = response.body();
                         assert clima != null;
                         List<Datum> list = clima.getData();
-                        presenter.updateListarRecycler(list);
+                        presenter .updateListarRecycler(list);
                     }
                 }
 
